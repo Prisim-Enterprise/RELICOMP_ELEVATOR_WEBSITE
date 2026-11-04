@@ -1,0 +1,19 @@
+# Prefer app/robots.ts (dynamic Sitemap host via SITE_URL).
+# This static file is a fallback if robots.ts is unavailable.
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.relicompelevator.com/sitemap.xml
