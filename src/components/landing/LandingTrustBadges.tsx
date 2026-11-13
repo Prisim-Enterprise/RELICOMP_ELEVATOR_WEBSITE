@@ -7,6 +7,24 @@ import {
   Siren,
 } from "lucide-react";
 
+/**
+ * NOTE: this component is currently not rendered - the usage in
+ * `src/views/HomeElevatorsBangalore.tsx` is commented out. It is kept here
+ * because it is the badge strip for the Google Ads landing page and may be
+ * switched back on.
+ *
+ * That is exactly why the "ISO Certified" badge below was changed. It claimed a
+ * certification the business has not published a certificate for, attached to
+ * no issuing body - the same claim that `/about` carried until 2026-11-13, where
+ * it was traced to issuers that do not exist. Dormant code is the worst place to
+ * leave a claim like that: uncommenting one line would have put an
+ * unsubstantiated certification claim onto a page that takes paid traffic, where
+ * advertising rules require claims to be substantiated.
+ *
+ * It now states the standard the equipment is actually built to, matching
+ * `/about`. If a real certificate is ever issued - standard, accredited body,
+ * number, expiry - this badge can carry it.
+ */
 const BADGES = [
   {
     icon: Factory,
@@ -15,8 +33,8 @@ const BADGES = [
   },
   {
     icon: Award,
-    title: "ISO Certified",
-    body: "Manufacturing quality systems",
+    title: "Built to IS 14665",
+    body: "BIS standards for lift design & safety",
   },
   {
     icon: ShieldCheck,
