@@ -119,7 +119,7 @@ export const commercialOffices: IndustryPageContent = {
  href: "/contact?topic=commercial-offices&product=commercial-offices",
  },
  seo: {
- title: "Commercial Elevators for Offices | Relicomp",
+ title: "Commercial Elevators for Offices",
  description:
  "Commercial elevator solutions for offices: sizing, passenger lifts, service cars, MRL options, AMC & modernization. Bangalore & South India.",
  canonicalPath: "/industries/commercial-offices",

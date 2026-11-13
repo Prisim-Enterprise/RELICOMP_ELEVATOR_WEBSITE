@@ -173,7 +173,7 @@ export const elevatorInstallation: ServicePageContent = {
  {
  question: "What is the cost of elevator installation in Bangalore?",
  answer:
- "Installation cost depends on elevator type, stops, access, and civil readiness, not a single national rate. Relicomp quotes after survey with scope separation. See our price guide for residential budgeting factors.",
+ "Installation cost depends on elevator type, stops, access, and civil readiness, not a single national rate. Relicomp quotes after survey with scope separation. See our [elevator installation cost guide](/blog/elevator-installation-cost-india) for scope and civil factors, and the [home lift price guide](/blog/home-lift-price-in-india-2026) for residential budgeting.",
  },
  {
  question: "Do you handle home elevator installation in Bangalore?",

@@ -1,5 +1,6 @@
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import postcss from "postcss";
@@ -11,8 +12,23 @@ const cssPath = join(outDir, "inlined.css");
 
 mkdirSync(outDir, { recursive: true });
 
-execSync(
-  "node_modules/.bin/tailwindcss -i ./app/globals.css -o ./src/generated/inlined.css --minify",
+// Resolve Tailwind's CLI entry and run it with the current Node binary rather than
+// the `node_modules/.bin` shim. The shim is a shell script on POSIX and a .cmd on
+// Windows, so invoking it through execSync broke any Windows checkout (and any
+// path containing a space). execFileSync with no shell avoids both problems.
+const require = createRequire(import.meta.url);
+const tailwindCli = require.resolve("tailwindcss/lib/cli.js");
+
+execFileSync(
+  process.execPath,
+  [
+    tailwindCli,
+    "-i",
+    join(root, "app/globals.css"),
+    "-o",
+    cssPath,
+    "--minify",
+  ],
   { cwd: root, stdio: "inherit" }
 );
 

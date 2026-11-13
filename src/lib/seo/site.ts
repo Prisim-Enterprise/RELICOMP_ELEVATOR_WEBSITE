@@ -34,7 +34,7 @@ export const SITE_LEGAL_NAME = "Relicomp Elevators Pvt. Ltd.";
  * every page had changed - a freshness signal search engines learn to ignore.
  * Bump this deliberately when content is actually revised.
  */
-export const CONTENT_LAST_REVIEWED = "2026-09-21";
+export const CONTENT_LAST_REVIEWED = "2026-11-13";
 
 export function absoluteUrl(path: string): string {
   if (!path) return SITE_URL;

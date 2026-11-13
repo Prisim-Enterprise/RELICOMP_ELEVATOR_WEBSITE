@@ -6,22 +6,34 @@ import { allServiceSlugs } from "@/content/services";
 import { allLocationSlugs } from "@/content/locations";
 import { allIndustrySlugs } from "@/content/industries";
 import { isPublished } from "@/content/publish";
-const STATIC_ROUTES: {
-  path: string;
-  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
-  priority: number;
-}[] = [
-  { path: "/", changeFrequency: "weekly", priority: 1 },
-  { path: "/about", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/products", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/projects", changeFrequency: "monthly", priority: 0.7 },
-  { path: "/contact", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/services", changeFrequency: "weekly", priority: 0.85 },
-  { path: "/locations", changeFrequency: "weekly", priority: 0.85 },
-  { path: "/industries", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
-  { path: "/terms-of-service", changeFrequency: "yearly", priority: 0.3 },
+
+/**
+ * No `changefreq` or `priority`.
+ *
+ * Google ignores both outright, and has said so for years; Bing treats priority
+ * as a hint it mostly disregards. They are not harmful, they are just bytes
+ * nobody reads - and they invite a pointless argument at review time about
+ * whether /products deserves 0.9 or 0.85, a number that changes nothing.
+ *
+ * `lastmod` is kept because engines do use it - but only while it is honest.
+ * It comes from CONTENT_LAST_REVIEWED (and a post's own updatedAt), not from
+ * the build clock, so a redeploy that changes no content does not claim every
+ * page changed. Stamping build time here is the fastest way to teach a crawler
+ * to ignore the field entirely.
+ */
+
+const STATIC_ROUTES = [
+  "/",
+  "/about",
+  "/products",
+  "/projects",
+  "/contact",
+  "/blog",
+  "/services",
+  "/locations",
+  "/industries",
+  "/privacy-policy",
+  "/terms-of-service",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -29,65 +41,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // told crawlers the whole site changed whenever anything was redeployed.
   const now = new Date(CONTENT_LAST_REVIEWED);
 
-  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.filter(
-    ({ path }) => isPublished(path)
-  ).map(({ path, changeFrequency, priority }) => ({
+  const entry = (path: string, lastModified: Date = now) => ({
     url: path === "/" ? SITE_URL : `${SITE_URL}${path}`,
-    lastModified: now,
-    changeFrequency,
-    priority,
-  }));
+    lastModified,
+  });
+
+  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.filter((path) =>
+    isPublished(path)
+  ).map((path) => entry(path));
 
   const products: MetadataRoute.Sitemap = allProductSlugs({
     indexableOnly: true,
-  }).map((slug) => ({
-    url: `${SITE_URL}/products/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.9,
-  }));
+  }).map((slug) => entry(`/products/${slug}`));
 
   const services: MetadataRoute.Sitemap = allServiceSlugs({
     indexableOnly: true,
-  }).map((slug) => ({
-    url: `${SITE_URL}/services/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.85,
-  }));
+  }).map((slug) => entry(`/services/${slug}`));
 
   const locations: MetadataRoute.Sitemap = allLocationSlugs({
     indexableOnly: true,
-  }).map((slug) => ({
-    url: `${SITE_URL}/locations/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.85,
-  }));
+  }).map((slug) => entry(`/locations/${slug}`));
 
   const industries: MetadataRoute.Sitemap = allIndustrySlugs({
     indexableOnly: true,
-  }).map((slug) => ({
-    url: `${SITE_URL}/industries/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  }).map((slug) => entry(`/industries/${slug}`));
 
   const posts: MetadataRoute.Sitemap = allBlogSlugs({
     indexableOnly: true,
   }).map((slug) => {
     const post = getBlogPost(slug);
-    return {
-      url: `${SITE_URL}/blog/${slug}`,
-      lastModified: post?.updatedAt
-        ? new Date(post.updatedAt)
-        : post?.publishedAt
-          ? new Date(post.publishedAt)
-          : now,
-      changeFrequency: "monthly" as const,
-      priority: 0.75,
-    };
+    const updated = post?.updatedAt ?? post?.publishedAt;
+    return entry(`/blog/${slug}`, updated ? new Date(updated) : now);
   });
 
   return [

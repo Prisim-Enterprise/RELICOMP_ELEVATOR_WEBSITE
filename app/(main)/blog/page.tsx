@@ -24,9 +24,9 @@ export function generateMetadata(): Metadata {
     return buildComingSoonMetadata("Elevator Guides & Resources");
   }
   return buildStaticPageMetadata({
-    title: "Elevator Guides: Price, Size, AMC & Technology",
+    title: "Elevator Guides: Price, Size & AMC",
     description:
-      "Practical elevator guides on home lift price, sizes, installation cost, AMC charges, hydraulic vs traction, and MRL technology from Relicomp Elevators, Bengaluru.",
+      "Practical elevator guides on home lift price and sizes, installation cost, AMC charges, hydraulic vs traction, and MRL technology.",
     path: "/blog",
   });
 }

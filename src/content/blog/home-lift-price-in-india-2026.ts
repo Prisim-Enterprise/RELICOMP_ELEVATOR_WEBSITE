@@ -34,7 +34,7 @@ export const homeLiftPriceInIndia2026: BlogPostContent = {
  },
  {
  type: "paragraph",
- text: "This guide focuses on decision quality: how to budget, which line items to demand on a quotation, and which cheap home lift offers usually reappear later as change orders. Relicomp manufactures [home elevators](/products/home-elevators) at Magadi and installs them after a [site survey](/contact?topic=home-lift-price&product=home-elevators). We will not invent a firm INR sticker for a house we have not seen. Shaft width and capacity decisions that quietly inflate price are covered in the companion home lift size guide.",
+ text: "This guide focuses on decision quality: how to budget, which line items to demand on a quotation, and which cheap home lift offers usually reappear later as change orders. Relicomp manufactures [home elevators](/products/home-elevators) at Magadi and installs them after a [site survey](/contact?topic=home-lift-price&product=home-elevators). We will not invent a firm INR sticker for a house we have not seen. Shaft width and capacity decisions that quietly inflate price are covered in the companion [home lift size guide](/blog/home-lift-size-guide).",
  },
  {
  type: "callout",
@@ -89,7 +89,7 @@ export const homeLiftPriceInIndia2026: BlogPostContent = {
  },
  {
  type: "paragraph",
- text: "Smaller cabins reduce structure and often equipment cost; family 4-person cabins improve usability and accessibility but need more plan area. Searches for 4 person home lift price in Bangalore should always be paired with shaft dimensions, capacity without footprint is incomplete. Use our size guide and [home elevators](/products/home-elevators) specs before comparing quotes. Wheelchair-minded clearances can further influence door and cabin choices.",
+ text: "Smaller cabins reduce structure and often equipment cost; family 4-person cabins improve usability and accessibility but need more plan area. Searches for 4 person home lift price in Bangalore should always be paired with shaft dimensions, capacity without footprint is incomplete. Use our [home lift size guide](/blog/home-lift-size-guide) and [home elevators](/products/home-elevators) specs before comparing quotes. Wheelchair-minded clearances can further influence door and cabin choices.",
  },
  {
  type: "heading",
@@ -332,9 +332,9 @@ export const homeLiftPriceInIndia2026: BlogPostContent = {
  href: "/contact?topic=home-lift-price&product=home-elevators",
  },
  seo: {
- title: "Home Lift Price in Bangalore 2026: Cost Guide",
+ title: "Home Lift Price in Bangalore 2026",
  description:
- "Home elevator lift cost explained for 2026: what drives home lift price in Bangalore, installation cost factors, 2 vs 4 person budgets, and how to compare quotes. Free survey.",
+ "What drives home lift price in Bangalore in 2026: cost blocks, installation factors, 2 vs 4 person budgets, and how to compare quotes.",
  canonicalPath: "/blog/home-lift-price-in-india-2026",
  ogImage: "/og/default.png",
  keywords: [

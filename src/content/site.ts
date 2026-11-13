@@ -35,6 +35,21 @@ export const openingHours = {
  closedDays: ["Sunday"] as const,
 } as const;
 
+/**
+ * The site makes two different availability claims, and until now neither page
+ * said they were different things: body copy advertises 24/7 breakdown support
+ * while LocalBusiness `openingHoursSpecification` publishes Mon-Sat 09:30-18:30.
+ * Both are true of different services, so the SEO audit (2026-09-21, AEO) asked
+ * for the distinction to be stated on the page rather than inferred. Keep this
+ * wording and the `openingHours` above in agreement.
+ */
+export const availability = {
+ officeHoursLabel: "Mon-Sat, 9:30 AM to 6:30 PM. Sunday closed",
+ /** One sentence, rendered wherever both claims appear together. */
+ note:
+ "Office hours cover sales, site surveys and new enquiries. Emergency breakdown and passenger-release calls are handled by our breakdown support line outside those hours.",
+} as const;
+
 /** Verified branch NAP: aligned with Contact.tsx (do not invent streets). */
 export const branches = {
  bangalore: {

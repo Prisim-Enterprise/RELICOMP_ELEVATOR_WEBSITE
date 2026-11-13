@@ -93,6 +93,14 @@ export function IndustryPageTemplate({ content }: IndustryPageTemplateProps) {
   const Icon = meta.icon;
   const theme = getIndustryTheme(content.slug);
 
+  // The card band below the hero had no heading at all, so its h3 card titles
+  // sat directly under the h1 - a level skip, and a section with nothing naming
+  // it. Both are fixed by giving the band the h2 it was missing.
+  const highlightsHeading =
+    meta.label === "Industry"
+      ? "How we approach projects like yours"
+      : `How we approach ${meta.label.toLowerCase()} projects`;
+
   const highlights = [
     {
       title: "Vertical-first planning",
@@ -170,6 +178,9 @@ export function IndustryPageTemplate({ content }: IndustryPageTemplateProps) {
 
         <section className="border-b border-border bg-muted/30 py-10">
           <div className="container mx-auto max-w-6xl px-4">
+            <h2 className="mb-6 text-2xl font-bold sm:text-3xl">
+              {highlightsHeading}
+            </h2>
             <HighlightCards items={highlights} />
           </div>
         </section>

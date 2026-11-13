@@ -160,9 +160,9 @@ export const liftModernization: ServicePageContent = {
  href: "/contact?topic=lift-modernization&product=lift-modernization",
  },
  seo: {
- title: "Lift Modernization & Elevator Retrofit | Relicomp",
+ title: "Lift Modernization & Retrofit",
  description:
- "Lift modernization and commercial elevator retrofit: controllers, doors, cabins, traction upgrades. Survey-led scope. Bangalore & South India. Request assessment.",
+ "Lift modernization and elevator retrofit: controllers, doors, cabins and traction upgrades. Survey-led scope across Bangalore & South India.",
  canonicalPath: "/services/lift-modernization",
  ogImage: "/og/default.png",
  keywords: [

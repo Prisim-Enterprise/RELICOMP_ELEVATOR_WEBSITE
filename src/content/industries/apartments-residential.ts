@@ -136,7 +136,7 @@ export const apartmentsResidential: IndustryPageContent = {
  href: "/contact?topic=apartments-residential&product=apartments-residential",
  },
  seo: {
- title: "Elevators for Apartments & Residential Buildings",
+ title: "Lifts for Apartments & Residential",
  description:
  "Lift for apartment projects: sizing, MRL/passenger options, small-core designs, AMC for RWAs. Relicomp residential elevator solutions. Free consultation.",
  canonicalPath: "/industries/apartments-residential",

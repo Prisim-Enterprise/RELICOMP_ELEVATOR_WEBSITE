@@ -267,7 +267,7 @@ export const homeElevators: ProductPageContent = {
         },
         {
             type: "paragraph",
-            text: "Share your floors, preferred capacity (2-person or 4-person), city, and whether the shaft is new-build or retrofit. We will recommend a home elevator configuration, discuss indicative investment after survey, and plan installation around your civil schedule. For pure budget research, start with the 2026 price guide; for a firm proposal, book a free site survey.",
+            text: "Share your floors, preferred capacity (2-person or 4-person), city, and whether the shaft is new-build or retrofit. We will recommend a home elevator configuration, discuss indicative investment after survey, and plan installation around your civil schedule. For pure budget research, start with the [2026 price guide](/blog/home-lift-price-in-india-2026) and the [home lift size guide](/blog/home-lift-size-guide); for a firm proposal, book a free site survey.",
         },
     ],
     faqs: [

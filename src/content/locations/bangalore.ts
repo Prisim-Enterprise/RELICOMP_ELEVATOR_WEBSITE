@@ -115,7 +115,7 @@ export const bangalore: LocationPageContent = {
  },
  {
  type: "paragraph",
- text: "Home lift Bangalore demand is driven by multi-level living, ageing parents, and luxury convenience. We size 2- and 4-person options, discuss hydraulic vs other drives, and price only after seeing the shaft. For cost education, use the 2026 home lift price guide; for product fit, use the home elevators page; for a firm quote, book a Bengaluru survey.",
+ text: "Home lift Bangalore demand is driven by multi-level living, ageing parents, and luxury convenience. We size 2- and 4-person options, discuss hydraulic vs other drives, and price only after seeing the shaft. For cost education, use the [2026 home lift price guide](/blog/home-lift-price-in-india-2026) and the [home lift size guide](/blog/home-lift-size-guide); for product fit, use the [home elevators](/products/home-elevators) page; for a firm quote, book a Bengaluru survey.",
  },
  {
  type: "heading",

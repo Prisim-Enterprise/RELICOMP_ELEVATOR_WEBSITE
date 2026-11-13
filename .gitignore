@@ -32,3 +32,13 @@ dist-ssr
 report.pdf
 report.md
 src/generated
+# SEO audit tooling, installed by the Seo-Promt-Master install.sh (MIT).
+# Developer tooling, not part of the site: nothing here is served or built.
+# Kept out of the repo so a client handover does not carry 600+ KB of
+# third-party agent instructions. To re-install, see docs/seo-audit/.
+.seo-prompt-master/
+.claude/
+.cursor/
+.github/copilot-instructions.md
+AGENTS.md
+GEMINI.md

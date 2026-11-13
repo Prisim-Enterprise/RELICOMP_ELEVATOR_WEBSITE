@@ -26,7 +26,7 @@ export const liftAmcMaintenance: ServicePageContent = {
  },
  {
  type: "paragraph",
- text: "A lift AMC (Annual Maintenance Contract) is a service agreement under which a qualified elevator maintenance company inspects, lubricates, adjusts, and supports your lift on a defined schedule, and responds when something fails. Instead of calling vendors ad hoc after a breakdown, you lock in preventive visits, documented checks, and a clear path for spare parts and emergency attendance. What those visits usually cost is unpacked in lift AMC charges explained. If the machine is not yet on site, start with [elevator installation](/services/elevator-installation); if it is old but the shaft is sound, [lift modernization](/services/lift-modernization) may be a better conversation than endless breakdown calls.",
+ text: "A lift AMC (Annual Maintenance Contract) is a service agreement under which a qualified elevator maintenance company inspects, lubricates, adjusts, and supports your lift on a defined schedule, and responds when something fails. Instead of calling vendors ad hoc after a breakdown, you lock in preventive visits, documented checks, and a clear path for spare parts and emergency attendance. What those visits usually cost is unpacked in [lift AMC charges explained](/blog/lift-amc-charges-explained). If the machine is not yet on site, start with [elevator installation](/services/elevator-installation); if it is old but the shaft is sound, [lift modernization](/services/lift-modernization) may be a better conversation than endless breakdown calls.",
  },
  {
  type: "paragraph",
@@ -204,7 +204,7 @@ export const liftAmcMaintenance: ServicePageContent = {
  },
  {
  type: "paragraph",
- text: "For residential buyers still specifying a new home elevator, plan AMC into ownership cost from day one. See our home elevators page and price guide for equipment context, then add maintenance as a line item in your lifecycle budget.",
+ text: "For residential buyers still specifying a new home elevator, plan AMC into ownership cost from day one. See our [home elevators](/products/home-elevators) page and [price guide](/blog/home-lift-price-in-india-2026) for equipment context and [lift AMC charges explained](/blog/lift-amc-charges-explained) for what drives the annual figure, then add maintenance as a line item in your lifecycle budget.",
  },
  ],
  faqs: [
@@ -232,6 +232,11 @@ export const liftAmcMaintenance: ServicePageContent = {
  question: "Can Relicomp maintain a lift installed by another company?",
  answer:
  "Often yes, after a condition assessment. Safety defects may need correction before a standard AMC starts. We will advise honestly if the installation is outside practical support.",
+ },
+ {
+ question: "Is breakdown support available outside office hours?",
+ answer:
+ "These are two separate services. Our offices are open Monday to Saturday, 9:30 AM to 6:30 PM, for sales, site surveys and new enquiries. Emergency breakdown and passenger-release calls are handled by the breakdown support line outside those hours. Attendance windows depend on your city and AMC tier, so confirm them in your agreement.",
  },
  ],
  related: [
@@ -286,9 +291,9 @@ export const liftAmcMaintenance: ServicePageContent = {
  href: "/contact?topic=amc&product=lift-amc-maintenance",
  },
  seo: {
- title: "Lift AMC & Elevator Maintenance Services",
+ title: "Lift AMC & Elevator Maintenance",
  description:
- "Lift AMC and elevator maintenance services in Bangalore & South India. Preventive visits, breakdown support, plan comparison. Relicomp AMC service provider. Request a quote.",
+ "Lift AMC and elevator maintenance in Bangalore & South India: preventive visits, breakdown support and plan comparison. Request a quote.",
  canonicalPath: "/services/lift-amc-maintenance",
  ogImage: "/og/default.png",
  keywords: [

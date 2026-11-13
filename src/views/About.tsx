@@ -90,6 +90,23 @@ const footprint = [
   { title: "Branch", place: "Jigani" },
 ];
 
+/**
+ * E-E-A-T: an unverifiable credential is a weak trust signal, and a credential
+ * attributed to a body that does not exist is worse than none. Two of the three
+ * cards here previously cited "ISO Certification Body" and "National Safety
+ * Authority" as issuers; neither is a real certifying organisation (ISO itself
+ * does not certify anyone - accredited bodies such as BSI or TUV do). The SEO
+ * audit of 2026-09-21 asked for certificate numbers and issuing bodies, or for
+ * the wording to be softened. They are now stated as the published standards the
+ * equipment is actually built and inspected to, each of which a reader or an AI
+ * model can look up, and which the installation page already cites in full.
+ *
+ * TODO(business): to publish a real certification card, send the standard
+ * (e.g. ISO 9001:2015), the accredited certification body that issued it, the
+ * certificate number and its expiry. With those three facts the claim becomes
+ * verifiable and can be added back - ideally also as `hasCredential` on the
+ * Organization node in src/lib/seo/jsonld.ts.
+ */
 const certificates = [
   {
     title: "Top 10 Elevators & Moving Stairways Manufacturers 2023",
@@ -99,18 +116,18 @@ const certificates = [
     issuer: "Industry Today",
   },
   {
-    title: "ISO Certified Manufacturing",
+    title: "Built to the BIS IS 14665 series",
     description:
-      "Our manufacturing facility in Magadi, Bengaluru is ISO certified, ensuring international quality standards.",
-    year: "2023",
-    issuer: "ISO Certification Body",
+      "Our elevators are designed, manufactured, erected and tested to the Bureau of Indian Standards IS 14665 series, which governs lift design, installation practice and the safety gear fitted to each machine.",
+    year: "IS 14665",
+    issuer: "Bureau of Indian Standards",
   },
   {
-    title: "Safety Compliance Certification",
+    title: "NBC 2016 and Karnataka Lifts Act compliance",
     description:
-      "All our elevators meet and exceed national safety standards with ARD, UCM, and advanced safety systems.",
-    year: "2023",
-    issuer: "National Safety Authority",
+      "Shaft, lobby and fire-safety work follows the National Building Code of India 2016, Part 8, Section 5. Lifts we install in Karnataka are commissioned under the Karnataka Lifts, Escalators and Passenger Conveyors Act, 2012, which governs permission to erect and the licence to operate.",
+    year: "2016",
+    issuer: "NBC 2016 & Karnataka Act, 2012",
   },
 ];
 

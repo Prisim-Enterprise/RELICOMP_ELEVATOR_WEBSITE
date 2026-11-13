@@ -44,16 +44,20 @@ const CertificatesPublications = ({
           {certificates.map((certificate, index) => (
             <TextReveal key={index} delay={index * 100}>
               <div className="relative group h-full flex">
-                {/* Ribbon Badge */}
-                <div className="absolute -top-3 -right-3 z-10">
-                  <div className="relative">
-                    <div className="bg-primary text-primary-foreground px-3 py-1.5 rounded-lg shadow-lg font-bold text-xs flex items-center gap-1.5">
-                      <Star className="h-3 w-3 fill-current" />
-                      <span>{certificate.year || "2023"}</span>
+                {/* Ribbon Badge. Rendered only when a year/reference is supplied:
+                    this used to fall back to a hardcoded "2023", which silently
+                    stamped the wrong year on any entry that omitted one. */}
+                {certificate.year && (
+                  <div className="absolute -top-3 -right-3 z-10">
+                    <div className="relative">
+                      <div className="bg-primary text-primary-foreground px-3 py-1.5 rounded-lg shadow-lg font-bold text-xs flex items-center gap-1.5">
+                        <Star className="h-3 w-3 fill-current" />
+                        <span>{certificate.year}</span>
+                      </div>
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-3 border-r-3 border-t-3 border-transparent border-t-primary"></div>
                     </div>
-                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-3 border-r-3 border-t-3 border-transparent border-t-primary"></div>
                   </div>
-                </div>
+                )}
 
                 {/* Card - Fixed height and width */}
                 <div className="bg-gradient-to-br from-background to-muted/30 border-2 border-primary/20 rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 w-full h-full flex flex-col group-hover:border-primary/50">

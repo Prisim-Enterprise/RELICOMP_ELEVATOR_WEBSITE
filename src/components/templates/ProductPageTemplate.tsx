@@ -15,7 +15,11 @@ import { RichText } from "@/components/content/RichText";
 import { StickyMobileCTA } from "@/components/content/StickyMobileCTA";
 import type { ProductPageContent } from "@/content/types";
 import { getProductGallerySlides } from "@/content/images";
-import { buildFaqJsonLd, buildProductJsonLd } from "@/lib/seo/jsonld";
+import {
+  buildFaqJsonLd,
+  buildProductJsonLd,
+  buildWebPageJsonLd,
+} from "@/lib/seo/jsonld";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Sparkles } from "lucide-react";
@@ -37,6 +41,16 @@ export function ProductPageTemplate({ content }: ProductPageTemplateProps) {
 
   const faqLd = buildFaqJsonLd(content.faqs);
   const productLd = buildProductJsonLd(content);
+  // Parity with the hub pages: Product schema answers "what is this", WebPage ties
+  // the URL into the site/Organization graph and carries the speakable hints that
+  // voice assistants read. Selectors below resolve to real elements on this page:
+  // the H1, the hero intro paragraph, and FAQSection's answer bodies.
+  const webPageLd = buildWebPageJsonLd({
+    path: content.seo.canonicalPath,
+    name: content.h1,
+    description: content.seo.description,
+    speakableSelectors: ["h1", ".speakable-intro", ".faq-answer"],
+  });
 
   const heroSrc =
     typeof content.heroImage === "string"
@@ -52,6 +66,7 @@ export function ProductPageTemplate({ content }: ProductPageTemplateProps) {
     <div className="min-h-screen flex flex-col bg-background pb-20 lg:pb-0">
       <Header />
       <JsonLd data={productLd} />
+      <JsonLd data={webPageLd} />
       {faqLd && <JsonLd data={faqLd} />}
 
       <main className="flex-1">
@@ -70,7 +85,7 @@ export function ProductPageTemplate({ content }: ProductPageTemplateProps) {
               <h1 className="mt-4 text-2xl font-extrabold tracking-tight break-words sm:text-3xl md:text-4xl lg:text-[2.6rem] lg:leading-[1.15]">
                 {content.h1}
               </h1>
-              <p className="mt-4 text-base leading-relaxed text-white/75 sm:text-lg">
+              <p className="speakable-intro mt-4 text-base leading-relaxed text-white/75 sm:text-lg">
                 <RichText
                   text={content.intro}
                   linkClassName="text-white underline decoration-primary underline-offset-4 hover:decoration-white"

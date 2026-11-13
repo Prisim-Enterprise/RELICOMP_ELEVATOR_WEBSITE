@@ -6,8 +6,10 @@ import { products } from "@/content/products";
 import { services } from "@/content/services";
 import { industries } from "@/content/industries";
 import { locations } from "@/content/locations";
+import { blogPosts } from "@/content/blog";
 import {
   aboutHubSeo,
+  blogHubSeo,
   homeHubSeo,
   industriesHubSeo,
   locationsHubSeo,
@@ -41,7 +43,7 @@ export function GET() {
     paths.filter((page) => isPublished(page.path));
 
   const moduleSection = (
-    module: "products" | "services" | "industries" | "locations"
+    module: "products" | "services" | "industries" | "locations" | "blog"
   ) => {
     const hub = modules[module].hub;
     const rows: string[] = [];
@@ -105,6 +107,7 @@ ${section("Elevator products", moduleSection("products"))}
 ${section("Services", moduleSection("services"))}
 ${section("Industries", moduleSection("industries"))}
 ${section("Locations", moduleSection("locations"))}
+${section("Guides", moduleSection("blog"))}
 ${section("Optional", optional)}`;
 
   return new Response(body, {
@@ -125,10 +128,12 @@ function buildNotes(): Record<string, string> {
     "/services": oneLine(servicesHubSeo.lead ?? ""),
     "/industries": oneLine(industriesHubSeo.lead ?? ""),
     "/locations": oneLine(locationsHubSeo.lead ?? ""),
+    "/blog": oneLine(blogHubSeo.lead ?? ""),
+    // Kept in step with the metadata those two pages now emit.
     "/privacy-policy":
-      "Read the Privacy Policy of Relicomp Elevators Pvt. Ltd. Learn how we collect, use, and protect your personal information when you use our website or submit an inquiry.",
+      "How Relicomp Elevators Pvt. Ltd. collects, uses and protects your personal information when you use this website or submit an enquiry.",
     "/terms-of-service":
-      "Read the Terms of Service for the Relicomp Elevators Pvt. Ltd. website, covering use of the site, products and services, intellectual property, and governing law.",
+      "Terms governing use of the Relicomp Elevators website and services, including products, intellectual property and governing law.",
   };
 
   for (const page of [
@@ -136,6 +141,9 @@ function buildNotes(): Record<string, string> {
     ...Object.values(services),
     ...Object.values(industries),
     ...Object.values(locations),
+    // The guides are the most citation-worthy pages on the site for an answer
+    // engine, so they belong in the crawler map rather than only in the sitemap.
+    ...Object.values(blogPosts),
   ]) {
     notes[page.seo.canonicalPath] = oneLine(page.seo.description);
   }

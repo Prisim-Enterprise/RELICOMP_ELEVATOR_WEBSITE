@@ -45,6 +45,17 @@ export function FAQSection({
             >
               {faq.question}
             </AccordionTrigger>
+            {/* NOTE (SEO): Radix mounts this content only once a visitor opens
+                the item, so `.faq-answer` elements are not in the server-rendered
+                HTML and the `.faq-answer` selector in our SpeakableSpecification
+                resolves to nothing until then. That is accepted here: every FAQ
+                answer is already published in full in the FAQPage JSON-LD on the
+                same page, which is what search and answer engines consume. Adding
+                `forceMount` does put the text in the HTML, but Radix then stops
+                applying `hidden`, so answers render expanded unless the closed
+                state is also hidden in CSS - which costs the expand/collapse
+                animation site-wide. Not worth it for a duplicate of data the
+                JSON-LD already carries. */}
             <AccordionContent className="faq-answer leading-relaxed text-muted-foreground">
               <RichText text={faq.answer} />
             </AccordionContent>

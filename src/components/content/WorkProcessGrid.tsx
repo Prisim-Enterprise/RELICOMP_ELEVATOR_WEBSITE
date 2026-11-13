@@ -99,9 +99,15 @@ export function WorkProcessGrid({
                   <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.16em] text-primary">
                     {stage.label}
                   </p>
-                  <p className="mt-0.5 text-sm font-semibold text-foreground">
+                  {/* A heading, not a styled paragraph: this labels the group
+                      of step cards below it. The page's section heading is an
+                      h2, so stage = h3 and step = h4 descends one level at a
+                      time. Tailwind's preflight zeroes heading margins and
+                      inherits font-size, so with the same classes this renders
+                      pixel-identically to the <p> it replaced. */}
+                  <h3 className="mt-0.5 text-sm font-semibold text-foreground">
                     {stage.subtitle}
-                  </p>
+                  </h3>
                 </div>
 
                 {/* Sub-steps */}

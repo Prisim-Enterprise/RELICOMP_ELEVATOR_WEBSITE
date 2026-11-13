@@ -18,7 +18,27 @@ export const blogHubSeo: HubSeoContent = {
     },
     {
       type: "paragraph",
-      text: "Read the [home lift price in India 2026 guide](/blog/home-lift-price-in-india-2026) for planning ranges. Pair it with the [home elevators product page](/products/home-elevators) before requesting a quote.",
+      text: "Read the [home lift price in India 2026 guide](/blog/home-lift-price-in-india-2026) for the cost drivers and how to compare quotations, then the [home lift size guide](/blog/home-lift-size-guide) for the cabin, shaft, pit and headroom decisions that move the price before anyone quotes. Pair both with the [home elevators product page](/products/home-elevators) before requesting a quote.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "If you are comparing installation or maintenance quotes",
+      id: "ownership",
+    },
+    {
+      type: "paragraph",
+      text: "The [elevator installation cost guide](/blog/elevator-installation-cost-india) separates equipment from installation scope and lists the line items that usually arrive later as change orders. For the ownership years that follow, [lift AMC charges explained](/blog/lift-amc-charges-explained) sets out what drives the annual figure and which clauses to read before signing.",
+    },
+    {
+      type: "heading",
+      level: 2,
+      text: "If you are choosing between elevator technologies",
+      id: "technology",
+    },
+    {
+      type: "paragraph",
+      text: "[Hydraulic vs traction elevator](/blog/hydraulic-vs-traction-elevator) compares the two drives on headroom, pit, speed, travel, energy and power-failure behaviour, with machine-room-less traction placed between them. If you only need the definition, [what is an MRL elevator](/blog/what-is-an-mrl-elevator) answers it in a sentence and then covers the trade-offs.",
     },
     {
       type: "paragraph",
@@ -39,11 +59,32 @@ export const blogHubSeo: HubSeoContent = {
     {
       question: "Which guide should apartment societies read first?",
       answer:
-        "Installation cost and AMC charges guides help ownership planning; product pages for MRL or traction elevators cover equipment selection.",
+        "Start with the [elevator installation cost guide](/blog/elevator-installation-cost-india) and [lift AMC charges explained](/blog/lift-amc-charges-explained) for ownership planning, then the [MRL](/products/mrl-elevators) or [traction elevator](/products/traction-elevators) product pages for equipment selection.",
+    },
+    {
+      question: "Which guide helps most if my shaft already exists?",
+      answer:
+        "The [home lift size guide](/blog/home-lift-size-guide), because a retrofit is decided by the dimensions you already have: clear cabin, shaft, pit depth and headroom. Read it alongside [hydraulic vs traction](/blog/hydraulic-vs-traction-elevator), since headroom often rules out one of the two drives.",
     },
   ],
   related: [
     { href: paths.blogHomePrice, label: "Home lift price 2026", kind: "blog" },
+    { href: paths.blogSizeGuide, label: "Home lift size guide", kind: "blog" },
+    {
+      href: paths.blogInstallationCost,
+      label: "Elevator installation cost",
+      kind: "blog",
+    },
+    {
+      href: paths.blogAmcCharges,
+      label: "Lift AMC charges explained",
+      kind: "blog",
+    },
+    {
+      href: paths.blogHydraulicVsTraction,
+      label: "Hydraulic vs traction elevators",
+      kind: "blog",
+    },
     { href: paths.homeElevators, label: "Home elevators product", kind: "product" },
     { href: paths.contact, label: "Request a survey", kind: "page" },
   ],

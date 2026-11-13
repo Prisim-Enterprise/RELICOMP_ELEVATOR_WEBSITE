@@ -1,23 +1,34 @@
 import type { Metadata } from "next";
 import TermsOfService from "@/views/TermsOfService";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildStaticPageMetadata } from "@/lib/seo/metadata";
+import { buildWebPageJsonLd } from "@/lib/seo/jsonld";
 
-
-export const metadata: Metadata = {
-  title: "Terms of Service | Relicomp Elevators",
+/**
+ * Routed through the shared metadata builder for the same reason as
+ * /privacy-policy: the hand-rolled version doubled the brand suffix, emitted no
+ * og:image and declared no canonical. The title omits the brand on purpose -
+ * the root layout template appends it exactly once.
+ */
+export const metadata: Metadata = buildStaticPageMetadata({
+  title: "Terms of Service",
   description:
-    "Read the Terms of Service for the Relicomp Elevators Pvt. Ltd. website, covering use of the site, products and services, intellectual property, and governing law.",
-  openGraph: {
-    title: "Terms of Service | Relicomp Elevators",
-    description:
-      "Terms governing the use of the Relicomp Elevators website and services.",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Terms of Service | Relicomp Elevators",
-  },
-};
+    "Terms governing use of the Relicomp Elevators website and services, including products, intellectual property and governing law.",
+  path: "/terms-of-service",
+});
 
 export default function TermsOfServicePage() {
-  return <TermsOfService />;
+  return (
+    <>
+      <JsonLd
+        data={buildWebPageJsonLd({
+          path: "/terms-of-service",
+          name: "Terms of Service",
+          description:
+            "Terms governing the use of the Relicomp Elevators website and services.",
+        })}
+      />
+      <TermsOfService />
+    </>
+  );
 }

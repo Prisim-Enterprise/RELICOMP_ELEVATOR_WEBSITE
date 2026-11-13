@@ -15,7 +15,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { sendEmail } from "@/lib/email";
-import { brand, headOfficeAddress } from "@/content/site";
+import { availability, brand, headOfficeAddress } from "@/content/site";
+import { contactFaqs } from "@/content/contactFaqs";
+import { FAQSection } from "@/components/content/FAQSection";
 import { cn } from "@/lib/utils";
 import {
   CheckCircle2,
@@ -69,6 +71,10 @@ const whyChoose = [
   "Free site visits and expert consultations",
   "24/7 breakdown support & emergency services",
 ];
+
+// Office hours vs breakdown availability, stated explicitly so the page copy and
+// the LocalBusiness opening-hours schema do not read as a contradiction.
+const { officeHoursLabel, note: availabilityNote } = availability;
 
 const getMapEmbedUrl = (address: string) =>
   `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed&zoom=15`;
@@ -375,10 +381,12 @@ const Contact = () => {
                 <div className="mt-5 flex gap-3 rounded-2xl border border-border bg-muted/40 p-4">
                   <Clock className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                   <div>
-                    <p className="text-sm font-semibold">Quick response</p>
+                    <p className="text-sm font-semibold">
+                      Office hours: {officeHoursLabel}
+                    </p>
                     <p className="mt-0.5 text-sm text-muted-foreground">
-                      Free site visits across our service regions. We typically
-                      reply within 24 hours.
+                      {availabilityNote} Free site visits across our service
+                      regions. We typically reply within 24 hours.
                     </p>
                   </div>
                 </div>
@@ -575,6 +583,18 @@ const Contact = () => {
               </Button>
             </div>
           </div>
+        </section>
+
+        {/* Contact FAQs. Answers the "are they open / do they charge to visit"
+            questions directly, and gives this page the FAQPage schema it was the
+            only live page to lack. */}
+        <section className="container mx-auto max-w-3xl px-4 pb-16">
+          <FAQSection
+            faqs={contactFaqs}
+            title="Contacting Relicomp: common questions"
+            pageType="contact"
+            slug="contact"
+          />
         </section>
       </main>
 

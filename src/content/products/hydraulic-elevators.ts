@@ -240,7 +240,7 @@ export const hydraulicElevators: ProductPageContent = {
         {
             question: "What is the hydraulic lift for home price in Bangalore?",
             answer:
-                "Hydraulic lift for home price varies with stops, capacity, finishes, and civil works. We provide project quotes after survey rather than a single catalogue rate. See our 2026 home lift price guide for budgeting factors.",
+                "Hydraulic lift for home price varies with stops, capacity, finishes, and civil works. We provide project quotes after survey rather than a single catalogue rate. See our [2026 home lift price guide](/blog/home-lift-price-in-india-2026) for budgeting factors, and [hydraulic vs traction elevators](/blog/hydraulic-vs-traction-elevator) for the drive comparison.",
         },
         {
             question: "How is a home hydraulic lift different from a passenger traction elevator?",
